@@ -1,0 +1,30 @@
+---
+# tasks file for gitlab
+
+- name: Firewall - Configure needed services
+  firewalld:
+    service: "{{ item }}"
+    permanent: true
+    immediate: true
+    state: enabled
+  with_items:
+    - http
+    - https
+  notify: restart firewalld
+
+- name: Check if the gitlab software is installed and up to date
+  yum:
+    name: git
+    state: present
+
+- name: Copy the configuration template to the server (put vars in host_vars)
+  template:
+    src: templates/gitlab.rb.j2
+    dest: /etc/gitlab/gitlab.rb
+  notify: restart gitlab
+  register: gitlab_template
+ 
+- name: Reconfigure gitlab when configuration file changes
+  command: /usr/bin/gitlab-ctl reconfigure
+  when: gitlab_template.changed
+

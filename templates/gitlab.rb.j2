@@ -1,0 +1,32 @@
+##########################################
+#            !!!WARNING!!!               #
+# This conf file is managed by Ansible.  #
+# Any changes will be overwritten        #
+##########################################
+
+external_url 'https://{{ git_external_url }}'
+
+############################
+# gitlab.yml configuration #
+############################
+
+gitlab_rails['gitlab_default_theme'] = {{ git_default_theme }}
+gitlab_rails['gitlab_email_display_name'] = "{{ git_email_display_name }}"
+gitlab_rails['gitlab_email_enabled'] = {{ git_email_enabled}} 
+gitlab_rails['time_zone'] = "{{ git_time_zone }}"
+
+##################
+# GitLab Sidekiq #
+##################
+
+sidekiq['shutdown_timeout'] = {{ git_sidekiq_timeout }}
+
+################
+# GitLab Nginx #
+################
+## see: https://gitlab.com/gitlab-org/omnibus-gitlab/tree/629def0a7a26e7c2326566f0758d4a27857b52a3/doc/settings/nginx.md
+
+nginx['redirect_http_to_https'] = true
+nginx['ssl_certificate'] = "/etc/pki/tls/certs/{{ ansible_domain }}.crt"
+nginx['ssl_certificate_key'] = "/etc/pki/tls/private/{{ ansible_domain }}.key"
+

@@ -1,0 +1,23 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: badmuts13
+  description: Ansible role to setup local gitlab server
+  company: "Stichting Volandis"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.6
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - development
+    - web
+    - gitlab
+    - git
+    - repository
+    - ci
+    - integration
+
+allow_duplicates: true

@@ -1,0 +1,11 @@
+---
+# handlers file for gitlab
+- name: restart firewalld
+  service: 
+    name: firewalld
+    state: restarted
+
+- name: restart gitlab
+  service:
+    name: gitlab-runsvdir.service
+    state: restarted

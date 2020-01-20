@@ -1,0 +1,10 @@
+---
+
+# Variables for Gitlab server template
+git_external_url: "{{ ansible_fqdn }}"
+git_default_theme: 4
+git_email_display_name: "Gitlab"
+git_email_enabled: !!str true
+git_time_zone: "UTC"
+git_sidekiq_timeout: 5
+
