@@ -41,10 +41,10 @@ The sidekiq timeout configured in Gitlab.
 None
 
 ## Example Playbook
-  # YAML file for dhcp roles
-  #
-  # Keep this file as clean as possible! 
-  #
+      # YAML file for dhcp roles
+      #
+      # Keep this file as clean as possible! 
+      #
     - hosts: ansible_gitlab
       become: true
       roles:
