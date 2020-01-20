@@ -10,7 +10,7 @@ This role is tested on RHEL and CentOS 7.7.
 Gitlab version is latest.
 
 ## Role Variables
-The following variables are used in the template.
+The following variables are used in the template. The values are the default values from the role. Change these in the host_vars of the Gitlab server.
 
     git_external_url: "{{ ansible_fqdn }}"
 
